@@ -54,6 +54,18 @@ def report(limit=0, offset=0):
     return json_result_list
 
 
+def dashboard():
+    Query = db.session.query(Persona)
+    query_all = Query.all()
+
+    x = [x[Persona.id] for x in query_all ]
+    
+    y = [x[Persona.age] for x in query_all]
+
+    return x,y
+
+
+
 if __name__ == "__main__":
     print("Test del modulo heart.py")
 
